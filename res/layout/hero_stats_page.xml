@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        
+
+        <TextView
+		        android:id="@+id/TVHeroStatsTitle"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:textSize="15sp"
+				android:text="Hero Name"
+				android:layout_alignParentTop="true"
+				android:layout_centerInParent="true" />
+        
+        <LinearLayout
+            android:id="@+id/LLHeroStats1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/TVHeroStatsTitle">
+        
+		        <com.game.divineknight.AspectRatioImageView
+				        android:id="@+id/IVHeroStatsHP"
+				        android:layout_width="25dp"
+				        android:layout_height="wrap_content"
+				        android:src="@drawable/hitpoints"
+				        android:background="#FFFFFF"
+				        android:layout_marginLeft="5dp"/>
+		                
+		        <TextView
+				        android:id="@+id/TVHeroStatsHitPoints"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:text="Hitpoints: "
+				        android:layout_marginLeft="5dp" />
+        
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/LLHeroStats2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/LLHeroStats1">
+        
+		         <com.game.divineknight.AspectRatioImageView
+				        android:id="@+id/IVHeroStatsLevel"
+				        android:layout_width="25dp"
+				        android:layout_height="wrap_content"
+				        android:src="@drawable/level2"
+				        android:background="#FFFFFF"
+				        android:layout_marginLeft="5dp"/>
+		                
+		        <TextView
+				        android:id="@+id/TVHeroStatsLevel"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+						android:text="Level: "
+						android:layout_marginLeft="5dp" />
+        
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/LLHeroStats3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/LLHeroStats2">
+        
+		        <com.game.divineknight.AspectRatioImageView
+				        android:id="@+id/IVHeroStatsAttack"
+				        android:layout_width="25dp"
+				        android:layout_height="wrap_content"
+				        android:src="@drawable/attack"
+				        android:background="#FFFFFF"
+				        android:layout_marginTop="5dp"
+				        android:layout_marginLeft="5dp"/>
+		                 
+		        <TextView
+				        android:id="@+id/TVHeroStatsAttack"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+						android:text="Attack: "
+						android:layout_marginLeft="5dp" />
+     
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/LLHeroStats4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/LLHeroStats3">
+        
+		        <com.game.divineknight.AspectRatioImageView
+				        android:id="@+id/IVHeroStatsDefence"
+				        android:layout_width="25dp"
+				        android:layout_height="wrap_content"
+				        android:src="@drawable/defence"
+				        android:background="#FFFFFF"
+				        android:layout_marginLeft="5dp"
+				        android:layout_marginTop="5dp"/>
+		
+		        <TextView
+		            android:id="@+id/TVHeroStatsDefence"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="Defence: "
+		            android:layout_marginLeft="5dp" />
+        
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/LLHeroStats5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/LLHeroStats4">
+        
+		        <com.game.divineknight.AspectRatioImageView
+				        android:id="@+id/IVHeroStatsGold"
+				        android:layout_width="25dp"
+				        android:layout_height="wrap_content"
+				        android:src="@drawable/gold"
+				        android:background="#FFFFFF"
+				        android:layout_marginLeft="5dp"
+				        android:layout_marginTop="5dp"/>
+		        
+		        <TextView
+				        android:id="@+id/TVHeroStatsGold"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+						android:text="Gold: "
+						android:layout_marginLeft="5dp"/>
+	
+        </LinearLayout>
+    </RelativeLayout>
+    
+
+</ScrollView>

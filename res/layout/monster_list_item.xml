@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+     <TextView
+        android:id="@+id/TVMonsterListName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:text="Name"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true" />
+    
+    <TextView
+        android:id="@+id/TVMonsterListLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level"
+        android:layout_below="@+id/TVMonsterListName" />
+
+    <TextView
+        android:id="@+id/TVMonsterListGoldGranted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:text="Gold Granted"
+		android:layout_below="@+id/TVMonsterListLevel"/>
+    
+    <com.game.divineknight.AspectRatioImageView
+        android:id="@+id/TVMonsterListImage"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="#000000"/>
+
+</RelativeLayout>

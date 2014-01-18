@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    
+     <ScrollView
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" >
+		 <RelativeLayout
+		  android:layout_width="fill_parent"
+	 	  android:layout_height="wrap_content" >
+	  				  
+		     <TextView
+		        android:id="@+id/TVMonsterStatsName"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="5dp"
+				android:text="Name"
+				android:layout_alignParentTop="true"
+				android:layout_alignParentLeft="true" />
+		
+		    <TextView
+		        android:id="@+id/TVMonsterStatsLevel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="5dp"
+		        android:text="Level" 
+		        android:layout_below="@+id/TVMonsterStatsName"/>
+		
+		    <TextView
+		        android:id="@+id/TVMonsterStatsGoldGranted"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="5dp"
+		   		android:text="Gold Granted"
+		   		android:layout_below="@+id/TVMonsterStatsLevel" />
+		    
+		    <TextView 
+		        android:id="@+id/TVMonsterStatsMonsterLore"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="5dp"
+		        android:text="Lore"
+		        android:textColor="@color/green"
+     		    android:textStyle="bold"
+     		    android:textSize="20sp"
+		     	android:layout_below="@+id/TVMonsterStatsImage"/>
+		    
+		    <com.game.divineknight.AspectRatioImageView
+		        android:id="@+id/TVMonsterStatsImage"
+		        android:layout_width="150dp"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentRight="true"
+		        android:background="#000000"
+		        android:src="@drawable/blank" />
+	  	  </RelativeLayout>
+	  </ScrollView>
+
+	<RelativeLayout
+	   		android:id="@+id/RL2Monster_statsBottom"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:minHeight="68dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentBottom="true"
+	        android:background="@color/holoActionBarColor">
+		    
+		        <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">  
+			        
+			        <RelativeLayout
+			   		android:id="@+id/RL3MonsterStatsBottom"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:minHeight="68dp"
+			        android:layout_marginLeft="10dp"
+			        android:layout_weight="2">
+			
+					        <TextView
+					            android:id="@+id/TVMonsterStatsFooterGoldGranted"
+					            android:layout_width="wrap_content"
+					            android:layout_height="wrap_content"
+								android:layout_alignTop="@+id/endDate"
+								android:layout_centerHorizontal="true"
+								android:layout_marginTop="10dp"
+					            android:text="Gold"
+					            android:textSize="10sp"
+					            android:textColor="@color/white"
+					            android:textAppearance="?android:attr/textAppearanceMedium" />
+					        
+					        <TextView
+					            android:id="@+id/TVMonsterStatsFooterMonsterName"
+					            android:layout_width="wrap_content"
+					            android:layout_height="wrap_content"
+								android:layout_centerVertical="true"
+								android:layout_centerInParent="true"
+					            android:text="Name"
+					            android:textColor="@color/white"
+					            android:textStyle="bold"
+					            android:textAppearance="?android:attr/textAppearanceMedium" />
+					</RelativeLayout>
+					
+					<Button
+			        android:id="@+id/BtnMonsterStatsFight"
+			        style="?android:attr/buttonStyleSmall"
+			        android:layout_width="0dp"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="10dp"
+			        android:layout_marginRight="10dp"
+			        android:textSize="20sp"
+			        android:textColor="@color/white"
+			        android:textStyle="bold" 
+			        android:layout_weight="3"
+			        android:background="@drawable/btn_signup_states2"
+			        android:text="Fight!" />
+						        
+				</LinearLayout>
+	    </RelativeLayout>
+
+</RelativeLayout>

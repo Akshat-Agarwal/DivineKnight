@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/logOut"
+        android:title="Log Out"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    
+        <item android:id="@+id/monsterList"
+        android:title="Monster List"
+        android:orderInCategory="80"
+        android:showAsAction="never" />
+        
+        <item android:id="@+id/HeroStats"
+        android:title="My Stats"
+        android:orderInCategory="60"
+        android:showAsAction="never" />
+</menu>

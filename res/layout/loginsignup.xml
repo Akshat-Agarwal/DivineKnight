@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <Button
+        android:id="@+id/BtnLoginsignupsignup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/BtnLoginsignupLogin"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_signup_states"
+        android:text="Signup"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/TVLoginsignupNoAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/BtnLoginsignupsignup"
+        android:layout_centerHorizontal="true"
+        android:text="No account yet? sign up today!"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/TVLoginsignupEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Email"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/ETLoginsignupEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVLoginsignupEmail"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/TVLoginsignupPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ETLoginsignupEmail"
+        android:layout_centerHorizontal="true"
+        android:text="Password"
+        android:layout_marginLeft="18dp"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/ETLoginsignupPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVLoginsignupPassword"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/BtnLoginsignupLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ETLoginsignupPassword"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_signup_states"
+        android:text="Login"
+        android:textColor="@color/white" />
+
+    <com.game.divineknight.AspectRatioImageView
+        android:id="@+id/IVLoginsignupTopImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ETLoginsignupEmail"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/shieldandsword" />
+
+</RelativeLayout>

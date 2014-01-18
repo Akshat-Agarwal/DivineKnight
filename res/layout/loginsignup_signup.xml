@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/newUsersTxtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:text="Hero name:"
+        android:textColor="@color/white"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/newUserTxtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/newUserEmail"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/white"
+        android:text="Password:" />
+
+    <EditText
+        android:id="@+id/newUsersName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/newUsersTxtName"
+        android:ems="10"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:inputType="text" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/newUserPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/newUserTxtPassword"
+        android:ems="10"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/newUserEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/newUserTxtEmail"
+        android:ems="10"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/newUserTxtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/newUsersName"
+        android:layout_marginLeft="16dp"
+        android:text="Email:"
+        android:textColor="@color/white"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>
