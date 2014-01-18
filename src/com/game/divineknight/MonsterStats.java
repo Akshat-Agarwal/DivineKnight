@@ -12,7 +12,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 public class MonsterStats extends Activity {
@@ -70,8 +73,6 @@ public class MonsterStats extends Activity {
 		// Passes flag images URL into ImageLoader.class
 		imageLoader.DisplayImage(monsterImage, TVMonsterStatsImage);
 		
-		levelCalculator(heroResource, monsterObject);
-		
 		BtnMonsterStatsFight.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -116,6 +117,9 @@ public class MonsterStats extends Activity {
 				
 				if(monsterDied){
 					showEndFightDialog(0);
+					// code to update level
+					heroResourceUpdater(heroResource, monsterObject);
+					
 				}else{
 					showEndFightDialog(1);
 				}
@@ -126,12 +130,30 @@ public class MonsterStats extends Activity {
 		
 	}
 	 
-	private void levelCalculator(HeroResources heroResource, MonsterListResources monsterObject) {
+	private void heroResourceUpdater(HeroResources heroResource, MonsterListResources monsterObject) {
 
-		double currentExp = heroResource.getExperience() + monsterObject.getExpGranted();
-		double currentHeroLevel;
-	    
+		double currentExp = heroResource.getExperience();
+		double currentHeroLevel = heroResource.getLevel();
+		double newHeroExp = currentExp + monsterObject.getExpGranted();
+		double goldGranted = monsterObject.getGoldReward();
+		double newHeroGold = goldGranted + heroResource.getGold();
+		double newHeroLevel = Math.floor((Math.pow(newHeroExp, (1/1.5))/10));
 		
+		ParseObject parseHero = ParseObject.createWithoutData("Hero", heroResource.getHeroObjectID());
+		
+		if (newHeroLevel != currentHeroLevel){
+			Toast.makeText(getApplicationContext(), "You just Levelled up!", Toast.LENGTH_LONG).show();
+			parseHero.put("hasUnspentStats", true);
+		}
+		
+		parseHero.put("Experience", newHeroExp);
+		parseHero.put("Gold", newHeroGold);		
+		parseHero.put("Level", newHeroLevel);
+		try {
+			parseHero.save();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
