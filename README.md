@@ -4,6 +4,7 @@ DivineKnight
 It is a upcoming framework and architecture for a RPG game. However, at this moment the output is only in form of mostly text.
 
 How to play-
+
 1) Get the code and compile it
 
 2) Install the .apk on your phone/tablet/emulator
