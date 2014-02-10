@@ -124,68 +124,83 @@ public class LoginSignupActivity extends Activity {
 								Toast.LENGTH_LONG).show();
 
 					} else{
-						Toast.makeText(getApplicationContext(),
-								"Signing up",
-								Toast.LENGTH_LONG).show();
-						// Save new user data into Parse.com Data Storage
-						ParseUser user = new ParseUser();
-						user.setUsername(newUserEmailString);
-						user.setPassword(newUserPasswordString);
-						user.signUpInBackground(new SignUpCallback() {
-							public void done(ParseException e) {
-								if (e == null) {
-									//User signed up, now log him in
-									ParseUser.logInInBackground(newUserEmailString, newUserPasswordString,
-											new LogInCallback() {
-												public void done(ParseUser user, ParseException e) {
-													if (user != null) {
-														//create a hero for the user
-														ParseObject hero = new ParseObject("Hero");
-														hero.put("Attack", 10);
-														hero.put("Defence", 10);
-														hero.put("Experience", 0);
-														hero.put("Gold", 0);
-														hero.put("HeroName", newHeroNameString);
-														hero.put("Hitpoints", 100);
-														hero.put("Level", 1);
-														hero.put("hasUser", ParseUser.getCurrentUser());
-														try {
-															hero.save();
-														} catch (ParseException e1) {
-															e1.printStackTrace();
+						if(isEmailValid(newUserEmailString)){
+							Toast.makeText(getApplicationContext(),
+									"Signing up",
+									Toast.LENGTH_LONG).show();
+							// Save new user data into Parse.com Data Storage
+							ParseUser user = new ParseUser();
+							user.setUsername(newUserEmailString);
+							user.setPassword(newUserPasswordString);
+							user.signUpInBackground(new SignUpCallback() {
+								public void done(ParseException e) {
+									if (e == null) {
+										//User signed up, now log him in
+										ParseUser.logInInBackground(newUserEmailString, newUserPasswordString,
+												new LogInCallback() {
+													public void done(ParseUser user, ParseException e) {
+														if (user != null) {
+															//create a hero for the user
+															ParseObject hero = new ParseObject("Hero");
+															hero.put("Attack", 10);
+															hero.put("Defence", 10);
+															hero.put("Experience", 0);
+															hero.put("Gold", 0);
+															hero.put("HeroName", newHeroNameString);
+															hero.put("Hitpoints", 100);
+															hero.put("Level", 1);
+															hero.put("hasUser", ParseUser.getCurrentUser());
+															try {
+																hero.save();
+															} catch (ParseException e1) {
+																e1.printStackTrace();
+															}
+															
+															// If user is created, send them to featured ads page
+															goToMonsterList();
+															Toast.makeText(getApplicationContext(),
+																	"Successfully signed up and logged in",
+																	Toast.LENGTH_LONG).show();
+															finish();
+														} else {
+															Toast.makeText(
+																	getApplicationContext(),
+																	"Invalid email and/or password.",
+																	Toast.LENGTH_LONG).show(); 
 														}
-														
-														// If user is created, send them to featured ads page
-														goToMonsterList();
-														Toast.makeText(getApplicationContext(),
-																"Successfully signed up and logged in",
-																Toast.LENGTH_LONG).show();
-														finish();
-													} else {
-														Toast.makeText(
-																getApplicationContext(),
-																"Invalid email and/or password.",
-																Toast.LENGTH_LONG).show(); 
 													}
-												}
-											});
-								} else {
-									if(e.getCode()==202){ //parse exception code for existing email being there
-									Toast.makeText(
-											getApplicationContext(),
-											"Email " + newUserEmailString + " is already taken" ,
-											Toast.LENGTH_LONG).show();
-									}
-									if (e.getCode()==100){	//parse exception code for no internet connection
+												});
+									} else {
+										if(e.getCode()==202){ //parse exception code for existing email being there
 										Toast.makeText(
 												getApplicationContext(),
-												"No internet connection can be found.",
+												"Email " + newUserEmailString + " is already taken" ,
 												Toast.LENGTH_LONG).show();
+										}
+										if (e.getCode()==100){	//parse exception code for no internet connection
+											Toast.makeText(
+													getApplicationContext(),
+													"No internet connection can be found.",
+													Toast.LENGTH_LONG).show();
+										}
 									}
 								}
-							}
-						});
+							});
 					} 
+						//Users new email is not valid
+						else{
+                    		AlertDialog.Builder builder = new AlertDialog.Builder(LoginSignupActivity.this);
+                    		builder.setTitle("Sorry your email address is not valid");
+                    		builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+								
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									
+								}
+							});
+            				builder.show(); 
+						}
+				}
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -198,6 +213,10 @@ public class LoginSignupActivity extends Activity {
 		builder.create();
 		builder.show();				
 	}
+	
+	boolean isEmailValid(CharSequence email) {
+		   return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+		}
 	
 	private void goToMonsterList() {
 	Intent intent = new Intent(this, MonsterListPage.class);

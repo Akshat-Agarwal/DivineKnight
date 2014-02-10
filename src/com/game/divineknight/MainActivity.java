@@ -11,6 +11,7 @@ public class MainActivity extends Activity {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 
 		// Determine whether the current user is an anonymous user
 		if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {
@@ -36,6 +37,5 @@ public class MainActivity extends Activity {
 				finish();
 			}
 		}
-
 	}
 }
